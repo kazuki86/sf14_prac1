@@ -20,7 +20,11 @@ news_show:
 
 inquiry_new:
   url: /inquiry/new
-  param: { module: Inquiry, action: New }
+  param: { module: Inquuiry, action: New }
+
+inquiry_complete:
+  url: /inquiry/complete
+  param: { module: Inquuiry, action: Complete }
 
 # generic rules
 # please, remove them by adding more specific rules

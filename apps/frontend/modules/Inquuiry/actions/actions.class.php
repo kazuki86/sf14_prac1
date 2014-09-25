@@ -22,6 +22,24 @@ class InquuiryActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-     
+    $form = new InquiryForm();
+    if ($request->isMethod(sfRequest::POST))
+    {
+      $form->bind($request->getParameter($form->getName()));
+      if ($form->isValid())
+      {
+        $form->send($this->context, 'sample@example.com', 'Symfony楽団ホームページからのお問い合わせ');
+        $this->getUser()->setAttribute('inquiry_send', true);
+        $this->redirect('Inquuiry/Complete');
+      }
+    }
+    $this->form = $form;
+  }
+
+  public function executeComplete(sfWebRequest $request)
+  {
+    $user = $this->getUser();
+    $this->redirectUnless($user->getAttribute('inquiry_send'), 'Inquuiry/New');
+    $user->setAttribute('inquiry_send', null);
   }
 }
