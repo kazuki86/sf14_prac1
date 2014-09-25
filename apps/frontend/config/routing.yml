@@ -4,7 +4,23 @@
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: Page, action: Show, slug: top }
+
+page_show:
+  url: /page/:slug
+  param: {module: Page, action: Show }
+
+news_list:
+  url: /news
+  param: { module: Page, action: NewsList }
+
+news_show:
+  url: /news/:slug
+  param: { module: Page, action: NewsShow }
+
+inquiry_new:
+  url: /inquiry/new
+  param: { module: Inquiry, action: New }
 
 # generic rules
 # please, remove them by adding more specific rules
