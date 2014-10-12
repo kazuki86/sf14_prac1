@@ -35,3 +35,7 @@ all:
     use_database:           true
     i18n:                   true
     default_culture:        ja
+
+    enabled_modules:        [default, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission]
+    login_module:           sfGuardAuth
+    login_action:           signin
